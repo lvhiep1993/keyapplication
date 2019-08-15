@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.keyapplication"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$supportLibraryVersion"
+    implementation "androidx.recyclerview:recyclerview:$supportLibraryVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesAndroidVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.24.5'
+    androidTestImplementation "androidx.test:runner:$testVersion"
+    androidTestImplementation "androidx.test:rules:$testVersion"
+
+}
